@@ -14,13 +14,11 @@ app.set("views","views");
 app.set("view engine", "ejs");
 
 //4
-app.get("/hello", function(req,res){
-    res.end(`<h1 style="background-color : red;"> HELLO WORLD <h1>`)
+app.get("/", function(req,res){
+    res.render("harid")
 });
 
-app.get("/gift", function(req,res){
-    res.end(`<h1> Siz sovg'alar bolimidasz<h1>`)
-});
+
 
 const server = hhtp.createServer(app);
 let PORT= 3000;

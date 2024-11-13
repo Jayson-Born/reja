@@ -4,11 +4,15 @@
   "description": "Bu bizning birnchi loyihamiz",
   "main": "\"server.js\"",
   "scripts": {
-    "start" : "server.js",
-    "dev"   : "nodemon server.js",
-    "train" : "nodemon train.js",
+    "start": "nodemon  server.js",
+    "dev": "nodemon server.js",
+    "train": "nodemon train.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Abdukabir",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.1"
+  }
 }
