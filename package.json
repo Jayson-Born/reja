@@ -2,7 +2,7 @@
   "name": "reja",
   "version": "1.0.0",
   "description": "Bu bizning birnchi loyihamiz",
-  "main": "\"server.js\"",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon  server.js",
     "dev": "nodemon server.js",
