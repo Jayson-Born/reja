@@ -4,10 +4,9 @@
   "description": "Bu bizning birinchi loyihamiz",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "dev": "nodemon app.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
     "train": "nodemon train.js",
-    "app": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Abdukabir",
@@ -15,7 +14,10 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.21.1",
-    "mongodb": "^3.2.6"
+    "inquirer": "^12.1.0",
+    "mongodb": "^3.7.4",
+    "uuid": "^8.3.2"
+    
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
