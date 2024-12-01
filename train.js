@@ -1,12 +1,88 @@
-//Task B
+//Task DD
 
-function countDigits(str) {
-       return [...str].filter(char => /\d/.test(char)).length;
+class Shop {
+       constructor(non, sut, tuxum) {
+           this.products = {
+               Non: non,
+               Sut: sut,
+               Tuxum: tuxum,
+           };
+       }
+   
+       getCurrentTime() {
+           const now = new Date();
+           const hours = now.getHours().toString().padStart(2, "0");
+           const minutes = now.getMinutes().toString().padStart(2, "0");
+           return `${hours}:${minutes}`;
+       }
+   
+       qoldiq() {
+           const time = this.getCurrentTime();
+           console.log(
+               `Hozir ${time}da ${this.products.Non}ta non, ${this.products.Sut}ta sut va ${this.products.Tuxum}ta tuxum mavjud!`
+           );
+           return this.products;
+       }
+   
+       sotish(mahsulot, soni) {
+           if (this.products[mahsulot] === undefined) {
+               console.log(`Bunday mahsulot mavjud emas: ${mahsulot}`);
+               return;
+           }
+           if (this.products[mahsulot] < soni) {
+               console.log(
+                   `Hozirgi vaqtda ${mahsulot}dan yetarlicha mavjud emas. Faqat ${this.products[mahsulot]}ta qolgan!`
+               );
+               return;
+           }
+           this.products[mahsulot] -= soni;
+           console.log(
+               `Hozir ${this.getCurrentTime()}da ${soni}ta ${mahsulot} sotildi!`
+           );
+       }
+   
+       qabul(mahsulot, soni) {
+           if (this.products[mahsulot] === undefined) {
+               console.log(`Bunday mahsulot mavjud emas: ${mahsulot}`);
+               return;
+           }
+           this.products[mahsulot] += soni;
+           console.log(
+               `Hozir ${this.getCurrentTime()}da ${soni}ta ${mahsulot} qabul qilindi!`
+           );
+       }
    }
    
+   const shop = new Shop(10, 5, 30); // Yangilangan mahsulot soni
+   shop.qoldiq();
+   shop.sotish("Non", 3);
+   shop.qabul("Tuxum", 10);
+   shop.qoldiq();
    
-   const result = countDigits("ad2a54y79wet0sfgb9");
-   console.log(result); 
+
+//Task c
+// function checkContent(str1, str2) {
+//        const normalize = (str) => Array.from(new Set(str.split('').sort())).join('');
+//        return normalize(str1) === normalize(str2);
+//      }
+     
+//      console.log(checkContent("bmw", "wbm"));
+//      console.log(checkContent("muzlatkich", "lchatmuzk"));
+//      console.log(checkContent("nima gap", "hammasi yaxshi"));
+
+
+
+
+
+//Task B
+
+// function countDigits(str) {
+//        return [...str].filter(char => /\d/.test(char)).length;
+//    }
+   
+   
+//    const result = countDigits("ad2a54y79wet0sfgb9");
+//    console.log(result); 
 // }
 
 // countDigits("ggg4hghgh3hhhgg2hhg3hghghg4hgh3",(err,data)=>{

@@ -1,8 +1,11 @@
 console.log("web Serverni boshlash");
 const express = require("express");
 const app = express();
-
 // const fs = require("fs");
+
+//MongoDB chqirish
+const db = require("./server").db();
+const mongoDB = require("mongodb");
 
 // let user;
 // fs.readFile("database/user.json", "utf8", (err, data) => {
@@ -12,9 +15,6 @@ const app = express();
 //       user = JSON.parse(data);
 //    }
 // });
-
-const db = require("./server").db();
-
 
 
 // 1 KIRISH code
@@ -27,20 +27,20 @@ app.use(express.urlencoded({extended: true}));
 app.set("views", "views");
 app.set("view engine", "ejs");
 
-
-
 // 4 ROUTING code
 app.post("/create-item", (req,res) => {
    console.log("user entered /create-item");
    console.log(req.body);
    const new_reja = req.body.reja;
    db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
-      if(err) {
-         console.log(err);
-         res.end("Something went wrong");
-      } else {
-         res.end("Succesfully added");
-      }
+      // if(err) {
+      //    console.log(err);
+      //    res.end("Something went wrong");
+      // } else {
+      //    res.end("Succesfully added");
+      // }
+      console.log(data.ops);
+      res.json(data.ops[0]);
    });
    // TODO: code with db here
    // console.log(req.body);
@@ -49,6 +49,35 @@ app.post("/create-item", (req,res) => {
 // app.get('/author', (req, res) => {
 //    res.render("author", {user: user});
 // });
+
+app.post("/delete-item", (req, res)=> {
+   const id = req.body.id;
+   db.collection("plans").deleteOne(
+      {_id: new mongoDB.ObjectId(id)}, 
+      function(err, data) {
+         res.json({ state: "success" });
+      }
+   )
+});
+
+app.post("/edit-item", (req, res) => {
+   const data = req.body;
+   console.log(data);
+   db.collection("plans").findOneAndUpdate(
+      {id: new mongoDB.ObjectId(data.id)}, 
+      {$set: {reja: data.new_input}}, 
+      function (err, data) {
+         res.json({state: "success"});
+      });
+});
+
+app.post("/delete-all", (req, res) => {
+   if(req.body.delete_all) {
+      db.collection("plans").deleteMany(function() {
+         res.json({state: "Hamma rejalar o'chirildi"});
+      });
+   }
+});
 
 app.get("/", function (req, res) {
    console.log("user entered /");
