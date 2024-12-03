@@ -1,63 +1,78 @@
+//Task EE
+
+function getReverse(soz) {
+    return soz.split("").reverse().join("");
+}
+
+console.log(getReverse("raxmat")); 
+console.log(getReverse("katta")); 
+
+
+
+
+
+
+
 //Task DD
 
-class Shop {
-       constructor(non, sut, tuxum) {
-           this.products = {
-               Non: non,
-               Sut: sut,
-               Tuxum: tuxum,
-           };
-       }
+// class Shop {
+//        constructor(non, sut, tuxum) {
+//            this.products = {
+//                Non: non,
+//                Sut: sut,
+//                Tuxum: tuxum,
+//            };
+//        }
    
-       getCurrentTime() {
-           const now = new Date();
-           const hours = now.getHours().toString().padStart(2, "0");
-           const minutes = now.getMinutes().toString().padStart(2, "0");
-           return `${hours}:${minutes}`;
-       }
+//        getCurrentTime() {
+//            const now = new Date();
+//            const hours = now.getHours().toString().padStart(2, "0");
+//            const minutes = now.getMinutes().toString().padStart(2, "0");
+//            return `${hours}:${minutes}`;
+//        }
    
-       qoldiq() {
-           const time = this.getCurrentTime();
-           console.log(
-               `Hozir ${time}da ${this.products.Non}ta non, ${this.products.Sut}ta sut va ${this.products.Tuxum}ta tuxum mavjud!`
-           );
-           return this.products;
-       }
+//        qoldiq() {
+//            const time = this.getCurrentTime();
+//            console.log(
+//                `Hozir ${time}da ${this.products.Non}ta non, ${this.products.Sut}ta sut va ${this.products.Tuxum}ta tuxum mavjud!`
+//            );
+//            return this.products;
+//        }
    
-       sotish(mahsulot, soni) {
-           if (this.products[mahsulot] === undefined) {
-               console.log(`Bunday mahsulot mavjud emas: ${mahsulot}`);
-               return;
-           }
-           if (this.products[mahsulot] < soni) {
-               console.log(
-                   `Hozirgi vaqtda ${mahsulot}dan yetarlicha mavjud emas. Faqat ${this.products[mahsulot]}ta qolgan!`
-               );
-               return;
-           }
-           this.products[mahsulot] -= soni;
-           console.log(
-               `Hozir ${this.getCurrentTime()}da ${soni}ta ${mahsulot} sotildi!`
-           );
-       }
+//        sotish(mahsulot, soni) {
+//            if (this.products[mahsulot] === undefined) {
+//                console.log(`Bunday mahsulot mavjud emas: ${mahsulot}`);
+//                return;
+//            }
+//            if (this.products[mahsulot] < soni) {
+//                console.log(
+//                    `Hozirgi vaqtda ${mahsulot}dan yetarlicha mavjud emas. Faqat ${this.products[mahsulot]}ta qolgan!`
+//                );
+//                return;
+//            }
+//            this.products[mahsulot] -= soni;
+//            console.log(
+//                `Hozir ${this.getCurrentTime()}da ${soni}ta ${mahsulot} sotildi!`
+//            );
+//        }
    
-       qabul(mahsulot, soni) {
-           if (this.products[mahsulot] === undefined) {
-               console.log(`Bunday mahsulot mavjud emas: ${mahsulot}`);
-               return;
-           }
-           this.products[mahsulot] += soni;
-           console.log(
-               `Hozir ${this.getCurrentTime()}da ${soni}ta ${mahsulot} qabul qilindi!`
-           );
-       }
-   }
+//        qabul(mahsulot, soni) {
+//            if (this.products[mahsulot] === undefined) {
+//                console.log(`Bunday mahsulot mavjud emas: ${mahsulot}`);
+//                return;
+//            }
+//            this.products[mahsulot] += soni;
+//            console.log(
+//                `Hozir ${this.getCurrentTime()}da ${soni}ta ${mahsulot} qabul qilindi!`
+//            );
+//        }
+//    }
    
-   const shop = new Shop(10, 5, 30); // Yangilangan mahsulot soni
-   shop.qoldiq();
-   shop.sotish("Non", 3);
-   shop.qabul("Tuxum", 10);
-   shop.qoldiq();
+//    const shop = new Shop(10, 5, 30); // Yangilangan mahsulot soni
+//    shop.qoldiq();
+//    shop.sotish("Non", 3);
+//    shop.qabul("Tuxum", 10);
+//    shop.qoldiq();
    
 
 //Task c
